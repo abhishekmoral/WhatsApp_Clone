@@ -15,11 +15,11 @@ class MyApp extends StatelessWidget {
       title: 'WhatsApp',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Color(0XFF00A884)),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF00A884)),
+        useMaterial3: false,
+        fontFamily: "Regular",
       ),
       home: Splashscreens(),
     );
   }
 }
-

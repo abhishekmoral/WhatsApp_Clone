@@ -13,7 +13,7 @@ class UiHelper {
           callback();
         },
         style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.green,
+
             shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(40),
         )
