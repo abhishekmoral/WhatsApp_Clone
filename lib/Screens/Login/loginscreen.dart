@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/Widgets/uihelper.dart';
 
+import '../OTP/otpscreen.dart';
+
 class Loginscreen extends StatefulWidget {
   @override
   State<Loginscreen> createState() => _LoginscreenState();
@@ -121,11 +123,47 @@ class _LoginscreenState extends State<Loginscreen> {
         ],
       ),
       floatingActionButton: UiHelper.CustomButton(
-        callback: () {},
+        callback: () {
+          login(phoneController.text.toString());
+        },
         buttonname: "Next",
-
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
+
+  login(String phonenumber) {
+    if (phonenumber.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Please enter your phone number"),
+          backgroundColor: Color(0xFF00A884),
+        ),
+      );
+    }
+    else if (phonenumber.length != 10) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Mobile number must be exactly 10 digits"),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+    else if (phonenumber.startsWith('0')) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Mobile number should not start with 0"),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+    else {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Otpscreen(phonenumber: phonenumber,)),
+      );
+    }
+  }
+
+
 }
