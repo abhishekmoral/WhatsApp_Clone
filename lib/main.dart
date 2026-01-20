@@ -1,7 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp/Screens/Splash/splashscreens.dart';
 
-void main() {
+import 'Screens/HomeScreen/homescreen.dart';
+import 'Screens/Login/loginscreen.dart';
+import 'Screens/Profile/profilescreen.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+ await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -19,7 +26,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: false,
         fontFamily: "Regular",
       ),
-      home: Splashscreens(),
+      home: Homescreen(),
     );
   }
 }
