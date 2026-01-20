@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: false,
         fontFamily: "Regular",
       ),
-      home: Homescreen(),
+      home: Splashscreens(),
     );
   }
 }
